@@ -28,7 +28,7 @@ class UserManager implements UserManagerContract
      */
     public function findById(int $id)
     {
-        return is_numeric($id) ? User::find($id) : null;
+        return ($id >= 0) ? User::find($id) : null;
     }
 
     /**
@@ -61,11 +61,11 @@ class UserManager implements UserManagerContract
      * Delete user by ID.
      *
      * @param int $userId
-     * @return string
+     * @return string|null
      */
     public function deleteUser(int $userId)
     {
-        if (is_numeric($userId)) {
+        if ($userId >= 0) {
             try {
                 $user = User::findOrFail($userId);
                 $user->delete();

@@ -29,7 +29,7 @@ class CarManager implements CarManagerContract
      */
     public function findById(int $id)
     {
-        return is_numeric($id) ? Car::find($id) : null;
+        return ($id >= 0) ? Car::find($id) : null;
     }
 
     /**
@@ -70,11 +70,11 @@ class CarManager implements CarManagerContract
      *
      * @param int $carId
      * @throws ModelNotFoundException
-     * @return string
+     * @return string|null
      */
     public function deleteCar(int $carId)
     {
-        if (is_numeric($carId)) {
+        if ($carId >= 0) {
             try {
                 $car = Car::findOrFail($carId);
                 $car->delete();

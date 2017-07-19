@@ -24,7 +24,7 @@ class Car extends Model
     ];
 
     /**
-     * Create a re
+     * Create a relation, a car can belong to one user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
