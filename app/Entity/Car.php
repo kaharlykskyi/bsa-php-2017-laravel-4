@@ -8,6 +8,7 @@ class Car extends Model
 {
     /**
      * Indicates if the model should be timestamped.
+     * Created_at and updated_at fields not needed.
      *
      * @var bool
      */
@@ -23,6 +24,8 @@ class Car extends Model
     ];
 
     /**
+     * Create a re
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

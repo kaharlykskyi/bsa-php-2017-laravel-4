@@ -58,16 +58,20 @@ class UserManager implements UserManagerContract
     }
 
     /**
+     * Delete user by ID.
+     *
      * @param int $userId
      * @return string
      */
     public function deleteUser(int $userId)
     {
-        try {
-            $user = User::findOrFail($userId);
-            $user->delete();
-        } catch (ModelNotFoundException $e) {
-            return "Error: {$e->getMessage()}";
+        if (is_numeric($userId)) {
+            try {
+                $user = User::findOrFail($userId);
+                $user->delete();
+            } catch (ModelNotFoundException $e) {
+                return "Error: {$e->getMessage()}";
+            }
         }
     }
 }

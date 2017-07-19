@@ -66,17 +66,21 @@ class CarManager implements CarManagerContract
     }
 
     /**
+     * Delete car by ID.
+     *
      * @param int $carId
      * @throws ModelNotFoundException
      * @return string
      */
     public function deleteCar(int $carId)
     {
-        try {
-            $car = Car::findOrFail($carId);
-        } catch (ModelNotFoundException $e) {
-            return "Error: {$e->getMessage()}";
+        if (is_numeric($carId)) {
+            try {
+                $car = Car::findOrFail($carId);
+                $car->delete();
+            } catch (ModelNotFoundException $e) {
+                return "Error: {$e->getMessage()}";
+            }
         }
-        $car->delete();
     }
 }
