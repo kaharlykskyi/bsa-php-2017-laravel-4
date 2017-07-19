@@ -13,11 +13,17 @@ class User extends Model
      */
     public $timestamps = false;
 
+    public $fillable = [
+        'first_name',
+        'last_name',
+        'is_active',
+    ];
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function car()
     {
-        return $this->hasOne('App\Entity\Car');
+        return $this->hasMany(Car::class);
     }
 }

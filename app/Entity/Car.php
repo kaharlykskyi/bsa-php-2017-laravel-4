@@ -13,11 +13,20 @@ class Car extends Model
      */
     public $timestamps = false;
 
+    protected $fillable = [
+        'model',
+        'registration_number',
+        'year',
+        'color',
+        'mileage',
+        'price',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->belongsTo('App\Entity\User');
+        return $this->belongsTo(User::class);
     }
 }

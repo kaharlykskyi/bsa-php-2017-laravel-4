@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
         });
     }
 

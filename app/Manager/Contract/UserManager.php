@@ -2,7 +2,6 @@
 
 namespace App\Manager\Contract;
 
-
 use App\Request\Contract\SaveUserRequest;
 use App\Entity\User;
 use Illuminate\Support\Collection;
@@ -15,7 +14,6 @@ interface UserManager
      * @return Collection
      */
     public function findAll(): Collection;
-
     /**
      * Get User model by ID
      *
@@ -23,14 +21,12 @@ interface UserManager
      * @return User|null
      */
     public function findById(int $id);
-
     /**
      * Find Users that has is_active flag true
      *
      * @return Collection
      */
     public function findActive(): Collection;
-
     /**
      * Create or Update User
      *
@@ -38,7 +34,6 @@ interface UserManager
      * @return User
      */
     public function saveUser(SaveUserRequest $request): User;
-
     /**
      * Delete User By ID
      *
